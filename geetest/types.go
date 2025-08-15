@@ -14,6 +14,7 @@ type ApiResponse[T any] struct {
 type commonRequestFields struct {
 	SessionID *string `json:"session_id,omitempty"`
 	Proxy     *string `json:"proxy,omitempty"`
+	UserAgent *string `json:"user_agent,omitempty"`
 }
 
 type SimpleMatchRequest struct {
