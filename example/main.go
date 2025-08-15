@@ -18,7 +18,7 @@ const (
 	// 您要测试的目标网站的 URL。
 	targetTestURL = "https://passport.bilibili.com/x/passport-login/captcha?source=main_web"
 	// 您的 Rust API 服务器地址。
-	apiServerAddr = "http://192.168.6.37:3000"
+	apiServerAddr = "http://127.0.0.1:3000"
 )
 
 // --- 并发测试专用配置 ---
