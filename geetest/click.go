@@ -19,6 +19,9 @@ func (s *ClickService) fillCommonFields(req *commonRequestFields) {
 	if req.Proxy == nil {
 		req.Proxy = s.client.Proxy
 	}
+	if req.User_Agent == nil {
+		req.User_Agent = s.client.User_Agent
+	}
 }
 
 // SimpleMatch 方法的修正
