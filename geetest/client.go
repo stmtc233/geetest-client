@@ -69,9 +69,9 @@ func WithProxy(proxy string) ClientOption {
 	}
 }
 
-func WithUserAgent(userAgent string) ClientOption {
+func WithUserAgent(User_Agent string) ClientOption {
 	return func(c *Client) {
-		c.User_Agent = &userAgent
+		c.User_Agent = &User_Agent
 	}
 }
 

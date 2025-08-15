@@ -12,9 +12,9 @@ type ApiResponse[T any] struct {
 
 // commonRequestFields 包含了用于会话和代理的通用可选字段。
 type commonRequestFields struct {
-	SessionID *string `json:"session_id,omitempty"`
-	Proxy     *string `json:"proxy,omitempty"`
-	UserAgent *string `json:"user_agent,omitempty"`
+	SessionID  *string `json:"session_id,omitempty"`
+	Proxy      *string `json:"proxy,omitempty"`
+	User_Agent *string `json:"user_agent,omitempty"`
 }
 
 type SimpleMatchRequest struct {
