@@ -17,7 +17,8 @@ import (
 type Client struct {
 	BaseURL    string
 	SessionID  *string
-	Proxy      *string // 这个字段现在只用作默认值
+	Proxy      *string
+	User_Agent *string
 	httpClient *http.Client
 
 	// 用于不同验证类型的服务
@@ -65,6 +66,12 @@ func WithSessionID(sessionID string) ClientOption {
 func WithProxy(proxy string) ClientOption {
 	return func(c *Client) {
 		c.Proxy = &proxy
+	}
+}
+
+func WithUserAgent(userAgent string) ClientOption {
+	return func(c *Client) {
+		c.User_Agent = &userAgent
 	}
 }
 
