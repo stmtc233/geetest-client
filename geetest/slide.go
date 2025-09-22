@@ -89,3 +89,8 @@ func (s *SlideService) Test(ctx context.Context, url string) (string, error) {
 	}
 	return *resultPtr, nil
 }
+func (s *SlideService) SimpleMatch(ctx context.Context, gt, challenge string) (*TupleResponse2, error) {
+	req := SimpleMatchRequest{GT: gt, Challenge: challenge}
+	s.fillCommonFields(&req.commonRequestFields)
+	return post[TupleResponse2](s.client, ctx, "/slide/simple_match", req)
+}
