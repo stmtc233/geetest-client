@@ -19,6 +19,7 @@ type Client struct {
 	SessionID  *string
 	Proxy      *string
 	User_Agent *string
+	Referer    *string
 	httpClient *http.Client
 
 	// 用于不同验证类型的服务
@@ -72,6 +73,14 @@ func WithProxy(proxy string) ClientOption {
 func WithUserAgent(User_Agent string) ClientOption {
 	return func(c *Client) {
 		c.User_Agent = &User_Agent
+	}
+}
+
+// WithReferer 为客户端发出的所有请求设置一个默认的 Referer。
+// 该值会被包含在发送到 Rust 后端的 JSON 请求体中。
+func WithReferer(referer string) ClientOption {
+	return func(c *Client) {
+		c.Referer = &referer
 	}
 }
 

@@ -22,6 +22,9 @@ func (s *ClickService) fillCommonFields(req *commonRequestFields) {
 	if req.User_Agent == nil {
 		req.User_Agent = s.client.User_Agent
 	}
+	if req.Referer == nil {
+		req.Referer = s.client.Referer
+	}
 }
 
 // SimpleMatch 方法的修正

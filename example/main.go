@@ -62,6 +62,8 @@ func runSingleExample() {
 	// client, err := geetest.NewClient(apiServerAddr, geetest.WithSessionID("my-go-session-123"))
 	// 创建一个带有代理的客户端
 	// client, err := geetest.NewClient(apiServerAddr, geetest.WithProxy("http://user:pass@host:port"))
+	// 创建一个带有 Referer 的客户端
+	// client, err := geetest.NewClient(apiServerAddr, geetest.WithReferer("https://www.bilibili.com/"))
 	// 创建一个客户端
 	client, err := geetest.NewClient(apiServerAddr)
 	if err != nil {
@@ -164,7 +166,7 @@ func runStressTest() {
 // (之前名为 runSingleTest，为避免与 runStressTest 混淆，重命名为 runSingleTask)
 func runSingleTask(ctx context.Context, taskID int) error {
 	sessionID := fmt.Sprintf("go-stress-test-%d-%d", taskID, time.Now().UnixNano())
-	// client, err := geetest.NewClient(apiServerAddr, geetest.WithSessionID(sessionID), geetest.WithProxy("http://user:pass@host:port"))
+	// client, err := geetest.NewClient(apiServerAddr, geetest.WithSessionID(sessionID), geetest.WithProxy("http://user:pass@host:port"), geetest.WithReferer("https://www.bilibili.com/"))
 	client, err := geetest.NewClient(apiServerAddr, geetest.WithSessionID(sessionID))
 	if err != nil {
 		return fmt.Errorf("创建客户端失败: %w", err)

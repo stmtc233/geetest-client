@@ -15,6 +15,7 @@ type commonRequestFields struct {
 	SessionID  *string `json:"session_id,omitempty"`
 	Proxy      *string `json:"proxy,omitempty"`
 	User_Agent *string `json:"user_agent,omitempty"`
+	Referer    *string `json:"referer,omitempty"`
 }
 
 type SimpleMatchRequest struct {
