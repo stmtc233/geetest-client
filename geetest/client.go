@@ -15,12 +15,13 @@ import (
 
 // Client 是 geetest 服务的主要 API 客户端。
 type Client struct {
-	BaseURL    string
-	SessionID  *string
-	Proxy      *string
-	User_Agent *string
-	Referer    *string
-	httpClient *http.Client
+	BaseURL       string
+	SessionID     *string
+	Proxy         *string
+	ImageUseProxy *bool
+	User_Agent    *string
+	Referer       *string
+	httpClient    *http.Client
 
 	// 用于不同验证类型的服务
 	Click *ClickService
@@ -67,6 +68,14 @@ func WithSessionID(sessionID string) ClientOption {
 func WithProxy(proxy string) ClientOption {
 	return func(c *Client) {
 		c.Proxy = &proxy
+	}
+}
+
+// WithImageUseProxy 为客户端发出的所有请求设置图片下载阶段是否复用代理。
+// 该值会被包含在发送到 Rust 后端的 JSON 请求体中。
+func WithImageUseProxy(imageUseProxy bool) ClientOption {
+	return func(c *Client) {
+		c.ImageUseProxy = &imageUseProxy
 	}
 }
 
