@@ -26,6 +26,7 @@ type Client struct {
 	// 用于不同验证类型的服务
 	Click *ClickService
 	Slide *SlideService
+	V4    *V4Service
 }
 
 // ClientOption 是一个用于配置 Client 的函数。
@@ -50,6 +51,7 @@ func NewClient(baseURL string, options ...ClientOption) (*Client, error) {
 	// 将具体服务链接回主客户端
 	c.Click = &ClickService{client: c}
 	c.Slide = &SlideService{client: c}
+	c.V4 = &V4Service{client: c}
 
 	return c, nil
 }

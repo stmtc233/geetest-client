@@ -68,3 +68,23 @@ type CSResponse struct {
 	C []byte `json:"c"`
 	S string `json:"s"`
 }
+
+// --- GeeTest v4 icon challenge ---
+
+type V4SolveRequest struct {
+	CaptchaID   string `json:"captcha_id"`
+	Challenge   string `json:"challenge"`
+	RiskType    string `json:"risk_type"`
+	MaxAttempts int    `json:"max_attempts,omitempty"`
+	commonRequestFields
+}
+
+type V4Solution struct {
+	LotNumber      string  `json:"lot_number"`
+	CaptchaOutput  string  `json:"captcha_output"`
+	PassToken      string  `json:"pass_token"`
+	GenTime        string  `json:"gen_time"`
+	Attempts       int     `json:"attempts"`
+	ElapsedMS      float64 `json:"elapsed_ms"`
+	CandidateCount int     `json:"candidate_count"`
+}

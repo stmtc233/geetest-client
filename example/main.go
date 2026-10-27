@@ -58,6 +58,10 @@ func runSingleExample() {
 	// --- 示例 1: 使用新会话的基本用法 ---
 	log.Println("--- 运行模式: 单个基本示例 ---")
 
+	// v4 图标挑战示例（captchaID/challenge 来自 B 站绑定预检）：
+	// solution, err := client.V4.Solve(ctx, captchaID, challenge, geetest.WithV4MaxAttempts(6))
+	// 成功后使用 solution.LotNumber / CaptchaOutput / PassToken / GenTime。
+
 	// 创建一个具有特定会话 ID 的客户端
 	// client, err := geetest.NewClient(apiServerAddr, geetest.WithSessionID("my-go-session-123"))
 	// 创建一个带有代理的客户端
